@@ -4,24 +4,21 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://kneldev.com',
   integrations: [
     starlight({
-      title: 'My Docs',
+      title: 'Packet Foundry',
+      favicon: '/favicon.png',
+      customCss: ['./src/styles/custom.css'],
       social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/kneldev/wikiBlog' }],
       sidebar: [
         {
-          label: 'Blog',
-          items: [
-            // Each item here is one entry in the navigation menu.
-            { label: 'Example Guide', slug: 'guides/example' },
-            { label: 'amir smells like a gorill', slug: 'guides/example' },
-            { label: 'Example Guide', slug: 'guides/example' },
-
-          ],
+          label: 'Section 1',
+          items: [{ autogenerate: { directory: 'section1' } }],
         },
         {
-          label: 'Reference',
-          items: [{ autogenerate: { directory: 'reference' } }],
+          label: 'Section 2',
+          items: [{ autogenerate: { directory: 'section2' } }],
         },
       ],
     }),

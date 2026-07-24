@@ -1,0 +1,1 @@
+WRN 2026-07-23T23:32:28.830 c/nvim.42844.0 server_start:197: Failed to start server: operation not permitted: /run/user/1000/nvim.2.0

@@ -1,40 +1,75 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
-template: splash # Remove or comment out this line to display the site sidebar on this page.
+title: Packet Foundry
+description: Notes from the lab, the terminal, and everything that broke along the way.
+template: splash
+
 hero:
-  tagline: Congrats on setting up a new Starlight project!
+  tagline: Building systems. Breaking assumptions. Documenting the damage.
   image:
-    file: ../../assets/houston.webp
+    file: ../../../public/favicon.png
   actions:
-    - text: Example Guide
-      link: /guides/example/
+    - text: Enter the Lab
+      link: /lab/
       icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
-      icon: external
+    - text: Browse the Notes
+      link: /notes/
+      icon: open-book
       variant: minimal
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import {
+	Card,
+	CardGrid,
+	LinkCard,
+} from '@astrojs/starlight/components';
 
-## Next steps
+## On the path of learning 
+Packet Foundry is my working record of learning cybersecurity, infrastructure,
+software development, Linux, Windows administration, networking, and whatever
+else I decide to pull apart.
+
+Some pages are complete guides. Others are field notes written while I am still
+figuring the problem out. 
 
 <CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
+	<Card title="Cyber Range" icon="rocket">
+		Build logs, attack paths, defensive testing, Active Directory labs,
+		malware analysis, CTF work, and the mistakes that make the useful parts
+		memorable.
+
+		[Enter the range →](/lab/)
 	</Card>
-	<Card title="Change page layout" icon="document">
-		Delete `template: splash` in `src/content/docs/index.mdx` to display a
-		sidebar on this page.
+
+	<Card title="Infrastructure" icon="setting">
+		Proxmox, containers, virtual networks, reverse proxies, identity,
+		endpoint management, monitoring, and the systems holding everything
+		together.
+
+		[Explore infrastructure →](/infrastructure/)
 	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
+
+	<Card title="Code" icon="seti:javascript">
+		Python, C#, TypeScript, shell scripts, experiments, utilities, and small
+		tools built because doing it manually became annoying.
+
+		[Browse development notes →](/development/)
 	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
+
+	<Card title="Field Notes" icon="pencil">
+		Quick fixes, commands, troubleshooting records, half-formed ideas, and
+		the details I know I will forget six months from now.
+
+		[Open the notes →](/notes/)
 	</Card>
 </CardGrid>
+
+## Current direction
+
+I am building a realistic home cyber range around Windows, Linux, Active
+Directory, Microsoft cloud services, segmented networking, offensive testing,
+and defensive visibility.
+
+The long-term objective is to understand the full path:
+
+```text
+build → configure → observe → attack → detect → repair → document

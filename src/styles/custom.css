@@ -1,0 +1,6 @@
+:root,
+:root[data-theme='light'] {
+  --sl-color-bg: #121418;
+  --sl-color-bg-nav: #121418;
+  --sl-color-bg-sidebar: #121418;
+}
