@@ -6,7 +6,7 @@ template: splash
 hero:
   tagline: Building systems. Breaking assumptions. Documenting the damage.
   image:
-    file: ../../../public/favicon.png
+    file: ../../assets/packet-foundry-logo.webp
   actions:
     - text: Enter the Lab
       link: /lab/
@@ -18,59 +18,46 @@ hero:
 ---
 
 import {
-	Card,
 	CardGrid,
 	LinkCard,
 } from '@astrojs/starlight/components';
 
-## On the path of learning 
-Packet Foundry is my working record of learning cybersecurity, infrastructure,
-software development, Linux, Windows administration, networking, and whatever
-else I decide to pull apart.
+<div className="home-overview">
+	<h2>Explore the foundry</h2>
+	<p>
+		A working record of cybersecurity, infrastructure, software development,
+		administration, and the lessons hidden inside broken systems.
+	</p>
+</div>
 
-Some pages are complete guides. Others are field notes written while I am still
-figuring the problem out. 
+<div className="home-navigation">
+	<CardGrid>
+		<LinkCard
+			title="Cyber Range"
+			href="/lab/"
+			description="Attack paths, defensive testing, Active Directory labs, malware analysis, and CTF work."
+		/>
+		<LinkCard
+			title="Infrastructure"
+			href="/infrastructure/"
+			description="Proxmox, containers, networks, identity, monitoring, and the systems holding it together."
+		/>
+		<LinkCard
+			title="Code"
+			href="/code/"
+			description="Scripts, experiments, utilities, and small tools built to remove repetitive work."
+		/>
+		<LinkCard
+			title="Field Notes"
+			href="/notes/"
+			description="Quick fixes, commands, troubleshooting records, and details worth remembering."
+		/>
+	</CardGrid>
+</div>
 
-<CardGrid stagger>
-	<Card title="Cyber Range" icon="rocket">
-		Build logs, attack paths, defensive testing, Active Directory labs,
-		malware analysis, CTF work, and the mistakes that make the useful parts
-		memorable.
-
-		[Enter the range →](/lab/)
-	</Card>
-
-	<Card title="Infrastructure" icon="setting">
-		Proxmox, containers, virtual networks, reverse proxies, identity,
-		endpoint management, monitoring, and the systems holding everything
-		together.
-
-		[Explore infrastructure →](/infrastructure/)
-	</Card>
-
-	<Card title="Code" icon="seti:javascript">
-		Python, C#, TypeScript, shell scripts, experiments, utilities, and small
-		tools built because doing it manually became annoying.
-
-		[Browse development notes →](/code/)
-	</Card>
-
-	<Card title="Field Notes" icon="pencil">
-		Quick fixes, commands, troubleshooting records, half-formed ideas, and
-		the details I know I will forget six months from now.
-
-		[Open the notes →](/notes/)
-	</Card>
-</CardGrid>
-
-## Current direction
-
-I am building a realistic home cyber range around Windows, Linux, Active
-Directory, Microsoft cloud services, segmented networking, offensive testing,
-and defensive visibility.
-
-The long-term objective is to understand the full path:
-
-```text
-build → configure → observe → attack → detect → repair → document
-```
+<div className="home-focus">
+	<strong>Current build:</strong> A home cyber range spanning Windows,
+	Linux, Active Directory, cloud services, segmented networking, offensive
+	testing, and defensive visibility.
+	<span>build → configure → observe → attack → detect → repair → document</span>
+</div>

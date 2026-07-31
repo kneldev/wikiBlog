@@ -1,49 +1,37 @@
-# Starlight Starter Kit: Basics
+# Packet Foundry
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+Packet Foundry is an Astro and Starlight knowledge base for cybersecurity,
+infrastructure, development, and field notes. Its visual layer is owned by this
+project so it can follow current Astro and Starlight releases without depending
+on an older third-party theme stack.
 
-```
-npm create astro@latest -- --template starlight
-```
+## Development
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Install dependencies:
 
-## 🚀 Project Structure
-
-Inside of your Astro + Starlight project, you'll see the following folders and files:
-
-```
-.
-├── public/
-├── src/
-│   ├── assets/
-│   ├── content/
-│   │   └── docs/
-│   └── content.config.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
+```sh
+npm install
 ```
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+Start Astro in background mode:
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+```sh
+npx astro dev --background
+```
 
-Static assets, like favicons, can be placed in the `public/` directory.
+Inspect or stop the server:
 
-## 🧞 Commands
+```sh
+npx astro dev status
+npx astro dev logs
+npx astro dev stop
+```
 
-All commands are run from the root of the project, from a terminal:
+Build the production site:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+```sh
+npm run build
+```
 
-## 👀 Want to learn more?
-
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+Documentation pages live in `src/content/docs/`. The sidebar is generated from
+the `lab`, `infrastructure`, `code`, and `notes` directories.
