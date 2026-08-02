@@ -1,0 +1,316 @@
+---
+const cards = [
+  {
+    key: 'lab',
+    title: 'Cyber Range',
+    description: 'Attack paths, defensive testing, and lab exercises.',
+    href: '/lab/',
+  },
+  {
+    key: 'infrastructure',
+    title: 'Infrastructure',
+    description: 'Networks, virtualization, identity, and operations.',
+    href: '/infrastructure/',
+  },
+  {
+    key: 'code',
+    title: 'Code',
+    description: 'Utilities, scripts, and experiments.',
+    href: '/code/',
+  },
+  {
+    key: 'notes',
+    title: 'Field Notes',
+    description: 'Fixes, commands, and observations.',
+    href: '/notes/',
+  },
+];
+---
+
+<div class="main-splash">
+  <section class="main-splash__hero">
+    <div class="main-splash__title">
+      <h1>Packet Foundry</h1>
+    </div>
+
+    <img
+      class="main-splash__logo"
+      src="/logo.png"
+      alt="Packet Foundry"
+    />
+  </section>
+
+  <section class="main-splash__path" aria-label="Explore Packet Foundry">
+    <p class="main-splash__statement main-splash__statement--build">
+      Building<br />systems
+    </p>
+
+    {cards.map((card, index) => (
+      <>
+        {index === 2 && (
+          <p class="main-splash__statement main-splash__statement--break">
+            Breaking<br />assumptions
+          </p>
+        )}
+
+        <a
+          class:list={[
+            'main-splash__card',
+            `main-splash__card--${card.key}`,
+          ]}
+          href={card.href}
+        >
+          <strong>{card.title}</strong>
+          <span>{card.description}</span>
+          <span class="main-splash__arrow" aria-hidden="true">→</span>
+        </a>
+      </>
+    ))}
+  </section>
+
+  <p class="main-splash__closing">Documenting the damage</p>
+</div>
+
+<style>
+  :global(html:has(.main-splash)) {
+    --sl-content-width: 88rem;
+  }
+
+  :global(.content-panel:has(+ .content-panel .main-splash)) {
+    display: none;
+  }
+
+  :global(.content-panel:has(.main-splash)) {
+    padding-block: 0;
+  }
+
+  :global(.content-panel:has(.main-splash) footer) {
+    display: none;
+  }
+
+  .main-splash :where(h1, p) {
+    margin: 0;
+  }
+
+  .main-splash {
+    --splash-border: color-mix(
+      in srgb,
+      var(--sl-color-accent) 30%,
+      var(--sl-color-gray-5)
+    );
+    display: grid;
+    align-content: center;
+    gap: clamp(1.25rem, 2.5vh, 2rem);
+    min-height: calc(100svh - var(--sl-nav-height));
+    padding: clamp(1.5rem, 3vh, 2.5rem) clamp(0rem, 2vw, 2rem);
+  }
+
+  .main-splash__hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(16rem, 0.65fr);
+    align-items: center;
+    gap: clamp(2rem, 6vw, 6rem);
+  }
+
+  .main-splash__title h1 {
+    max-width: 9ch;
+    font-size: clamp(3.5rem, 7vh, 6rem);
+    line-height: 0.9;
+    letter-spacing: -0.06em;
+  }
+
+  .main-splash__logo {
+    width: min(100%, clamp(14rem, 24vh, 21rem));
+    margin-inline: auto;
+    padding: clamp(0.75rem, 2vh, 1.25rem);
+    border: 1px solid var(--splash-border);
+    border-radius: 1rem;
+    box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 22%);
+  }
+
+  .main-splash__path {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: clamp(0.5rem, 1.25vh, 0.85rem) clamp(0.75rem, 1.5vw, 1.25rem);
+    align-items: center;
+  }
+
+  .main-splash__card {
+    --card-accent: var(--sl-color-accent-high);
+    position: relative;
+    display: grid;
+    gap: 0.35rem;
+    min-height: clamp(5.25rem, 9.5vh, 6.75rem);
+    padding: 0.75rem 2.5rem 0.75rem 1rem;
+    border: 1px solid var(--splash-border);
+    border-inline-start: 4px solid var(--card-accent);
+    border-radius: 0.75rem;
+    background:
+      linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--card-accent) 10%, transparent),
+        transparent 60%
+      ),
+      var(--sl-color-bg-nav);
+    box-shadow: 0 0.8rem 2rem rgb(0 0 0 / 14%);
+    color: var(--sl-color-text);
+    text-decoration: none;
+    transition:
+      border-color 160ms ease,
+      box-shadow 160ms ease,
+      transform 160ms ease;
+  }
+
+  .main-splash__card:hover {
+    border-color: var(--card-accent);
+    box-shadow: 0 1rem 2.4rem rgb(0 0 0 / 22%);
+    transform: translateY(-3px);
+  }
+
+  .main-splash__card:focus-visible {
+    outline: 3px solid var(--card-accent);
+    outline-offset: 4px;
+  }
+
+  .main-splash__card strong {
+    align-self: end;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    color: var(--sl-color-white);
+  }
+
+  .main-splash__card > span:not(.main-splash__arrow) {
+    font-size: clamp(0.78rem, 1.2vw, 0.95rem);
+    color: var(--sl-color-gray-2);
+    line-height: 1.45;
+  }
+
+  .main-splash__arrow {
+    position: absolute;
+    inset-block-start: 0.7rem;
+    inset-inline-end: 0.9rem;
+    font-size: 1.2rem;
+    color: var(--card-accent);
+  }
+
+  .main-splash__card--lab {
+    --card-accent: #38bdf8;
+    grid-column: 1 / span 4;
+    grid-row: 1;
+  }
+
+  .main-splash__card--infrastructure {
+    --card-accent: #22d3ee;
+    grid-column: 3 / span 4;
+    grid-row: 2;
+  }
+
+  .main-splash__card--code {
+    --card-accent: #818cf8;
+    grid-column: 5 / span 4;
+    grid-row: 3;
+  }
+
+  .main-splash__card--notes {
+    --card-accent: #a78bfa;
+    grid-column: 7 / span 4;
+    grid-row: 4;
+  }
+
+  .main-splash__statement,
+  .main-splash__closing {
+    max-width: none;
+    font-family: ui-serif, Georgia, Cambria, "Times New Roman", serif;
+    font-size: clamp(2rem, 4.5vh, 3.25rem);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    color: var(--sl-color-white);
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+  }
+
+  .main-splash__statement--build {
+    grid-column: 8 / -1;
+    grid-row: 1 / span 2;
+    justify-self: center;
+  }
+
+  .main-splash__statement--break {
+    grid-column: 1 / span 4;
+    grid-row: 3 / span 2;
+    align-self: center;
+  }
+
+  .main-splash__closing {
+    justify-self: center;
+    font-size: clamp(2.25rem, 4.5vh, 3.5rem);
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  @media (max-width: 50rem) {
+    .main-splash {
+      justify-items: center;
+      gap: 3rem;
+      min-height: auto;
+      padding: 3rem clamp(1rem, 5vw, 2rem) 5rem;
+    }
+
+    .main-splash__hero {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      width: 100%;
+      text-align: center;
+    }
+
+    .main-splash__title h1 {
+      max-width: 8ch;
+      font-size: clamp(3.5rem, 15vw, 5.5rem);
+    }
+
+    .main-splash__logo {
+      width: min(100%, 22rem);
+    }
+
+    .main-splash__path {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      width: 100%;
+      gap: 1rem;
+    }
+
+    .main-splash__card,
+    .main-splash__statement {
+      grid-column: 1;
+      grid-row: auto;
+    }
+
+    .main-splash__card {
+      width: min(100%, 26rem);
+    }
+
+    .main-splash__statement {
+      justify-self: center;
+      width: min(100%, 26rem);
+      padding-block: 1.25rem;
+      border-block: 1px solid var(--sl-color-hairline);
+      font-size: clamp(2.35rem, 10vw, 3.5rem);
+      text-align: center;
+    }
+
+    .main-splash__statement--build {
+      justify-self: center;
+    }
+
+    .main-splash__statement--break {
+      margin-block: 0.75rem;
+    }
+
+    .main-splash__closing {
+      max-width: 9ch;
+      font-size: clamp(2.5rem, 10vw, 3.75rem);
+    }
+  }
+</style>

@@ -1,0 +1,21 @@
+---
+const {
+  theme,
+  eyebrow,
+  intro,
+  focus,
+} = Astro.props;
+---
+
+<section
+  class:list={['section-splash', `section-splash--${theme}`]}
+  aria-label={`${eyebrow} overview`}
+>
+  <p class="section-splash__eyebrow">{eyebrow}</p>
+  <p class="section-splash__intro">{intro}</p>
+
+  <div class="section-splash__focus">
+    <span>Current focus</span>
+    <strong>{focus}</strong>
+  </div>
+</section>

@@ -2,62 +2,8 @@
 title: Packet Foundry
 description: Notes from the lab, the terminal, and everything that broke along the way.
 template: splash
-
-hero:
-  tagline: Building systems. Breaking assumptions. Documenting the damage.
-  image:
-    html: '<img src="/logo.png" alt="Packet Foundry logo">'
-  actions:
-    - text: Enter the Lab
-      link: /lab/
-      icon: right-arrow
-    - text: Browse the Notes
-      link: /notes/
-      icon: open-book
-      variant: minimal
 ---
 
-import {
-	CardGrid,
-	LinkCard,
-} from '@astrojs/starlight/components';
+import MainSplash from '../../components/MainSplash.astro';
 
-<div className="home-overview">
-	<h2>Explore the foundry</h2>
-	<p>
-		A working record of cybersecurity, infrastructure, software development,
-		administration, and the lessons hidden inside broken systems.
-	</p>
-</div>
-
-<div className="home-navigation">
-	<CardGrid>
-		<LinkCard
-			title="Cyber Range"
-			href="/lab/"
-			description="Attack paths, defensive testing, Active Directory labs, malware analysis, and CTF work."
-		/>
-		<LinkCard
-			title="Infrastructure"
-			href="/infrastructure/"
-			description="Proxmox, containers, networks, identity, monitoring, and the systems holding it together."
-		/>
-		<LinkCard
-			title="Code"
-			href="/code/"
-			description="Scripts, experiments, utilities, and small tools built to remove repetitive work."
-		/>
-		<LinkCard
-			title="Field Notes"
-			href="/notes/"
-			description="Quick fixes, commands, troubleshooting records, and details worth remembering."
-		/>
-	</CardGrid>
-</div>
-
-<div className="home-focus">
-	<strong>Current build:</strong> A home cyber range spanning Windows,
-	Linux, Active Directory, cloud services, segmented networking, offensive
-	testing, and defensive visibility.
-	<span>build → configure → observe → attack → detect → repair → document</span>
-</div>
+<MainSplash />

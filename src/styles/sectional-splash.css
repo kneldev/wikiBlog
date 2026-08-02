@@ -1,0 +1,83 @@
+/* <-------------------- SECTIONAL SPLASH MAIN CARD --------------------> */
+
+.section-splash {
+  --section-accent: var(--sl-color-accent-high);
+  display: grid;
+  justify-items: center;
+  gap: 1.5rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border: 1px solid
+    color-mix(in srgb, var(--section-accent) 30%, var(--sl-color-gray-5));
+  border-block-start: 4px solid var(--section-accent);
+  border-radius: 0.85rem;
+  background:
+    linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--section-accent) 9%, transparent),
+      transparent 58%
+    ),
+    var(--sl-color-bg-nav);
+  text-align: center;
+}
+
+.section-splash--lab {
+  --section-accent: #38bdf8;
+}
+
+.section-splash--infrastructure {
+  --section-accent: #22d3ee;
+}
+
+.section-splash--code {
+  --section-accent: #818cf8;
+}
+
+.section-splash--notes {
+  --section-accent: #a78bfa;
+}
+
+.section-splash :where(p) {
+  margin: 0;
+}
+
+.section-splash__eyebrow {
+  color: var(--section-accent);
+  font-family: var(--sl-font-mono);
+  font-size: var(--sl-text-xs);
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.section-splash__intro {
+  max-width: 58ch;
+  font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+  line-height: 1.5;
+  color: var(--sl-color-white);
+}
+
+.section-splash__focus {
+  display: grid;
+  justify-items: center;
+  gap: 0.4rem;
+  width: min(100%, 58ch);
+  padding-block-start: 1.25rem;
+  border-block-start: 1px solid var(--sl-color-hairline);
+}
+
+.section-splash__focus span {
+  color: var(--section-accent);
+  font-size: var(--sl-text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.section-splash__focus strong {
+  max-width: 52ch;
+  color: var(--sl-color-gray-2);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* <------------------ END SECTIONAL SPLASH MAIN CARD ------------------> */

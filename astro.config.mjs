@@ -9,7 +9,7 @@ export default defineConfig({
     starlight({
       title: "Packet Foundry",
       favicon: "/favicon.png",
-      customCss: ["./src/styles/custom.css"],
+      customCss: ["./src/styles/sectional-splash.css"],
       social: [
         {
           icon: "github",
